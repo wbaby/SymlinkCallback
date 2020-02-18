@@ -106,6 +106,14 @@ SymHookCreate (
     fileObject = ioStack->FileObject;
 
     //
+    // Print the file name being accessed
+    //
+    DbgPrintEx(DPFLTR_IHVDRIVER_ID,
+               DPFLTR_ERROR_LEVEL,
+               "Opening file %wZ\n",
+               &fileObject->FileName);
+
+    //
     // Allocate space for the original device name, plus the size of the
     // file name, and adding space for the terminating NUL.
     //
